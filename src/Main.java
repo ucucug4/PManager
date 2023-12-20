@@ -70,7 +70,7 @@ public class Main {
         String password = ":";
         while (!chkr.usernameChecker(password)) {
             System.out.print("Введите пароль: ");
-            password = sc.nextline();
+            password = sc.nextLine();
             if (chkr.passwordChecker(password)) {
                 System.out.println("Пароль соответствует требованиям");
             } else {

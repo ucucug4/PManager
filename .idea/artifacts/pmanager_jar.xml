@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact name="pmanager:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pmanager_jar</output-path>
+    <root id="root">
+      <element id="archive" name="pmanager.jar">
+        <element id="module-output" name="pmanager" />
+      </element>
+      <element id="file-copy" path="$PROJECT_DIR$/../mysql-connector-j-8.1.0.jar" />
+    </root>
+  </artifact>
+</component>

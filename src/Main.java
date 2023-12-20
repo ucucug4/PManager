@@ -68,7 +68,7 @@ public class Main {
             }
         }
         String password = ":";
-        while (!chkr.usernameChecker(password)) {
+        while (!chkr.passwordChecker(password)) {
             System.out.print("Введите пароль: ");
             password = sc.nextLine();
             if (chkr.passwordChecker(password)) {
@@ -78,12 +78,10 @@ public class Main {
             }
         }
         account = new Account(username, password, connectionURL, driverName);
-        if (chkr.usernameChecker(password) & chkr.usernameChecker(username)) {
-            if (account.registration(account)) {
-                System.out.println("Регистрация прошла успешно. Добро пожаловать, " + username + "!\n");
-                CustomTableOperations.dataCreate(driverName, connectionURL, account);
-                dataOperationSelection(connectionURL, driverName);
-            }
+        if (account.registration(account)) {
+            System.out.println("Регистрация прошла успешно. Добро пожаловать, " + username + "!\n");
+            CustomTableOperations.dataCreate(driverName, connectionURL, account);
+            dataOperationSelection(connectionURL, driverName);
         } else {
             initialActions(connectionURL, driverName);
         }
@@ -102,14 +100,12 @@ public class Main {
         }
         if (Objects.equals(choice, "1")) {
             CustomTableOperations.dataCreate(driverName, connectionURL, account);
-            dataOperationSelection(connectionURL, driverName);
         } else if (Objects.equals(choice, "2")) {
             CustomTableOperations.dataUpdate(driverName, connectionURL, account);
-            dataOperationSelection(connectionURL, driverName);
         } else {
             CustomTableOperations.dataDelete(driverName, connectionURL, account);
-            dataOperationSelection(connectionURL, driverName);
         }
+        dataOperationSelection(connectionURL, driverName);
     }
 
     private static void tableShow() throws ClassNotFoundException {

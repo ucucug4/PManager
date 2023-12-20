@@ -20,9 +20,7 @@ public class Account {
 
     public Boolean login() throws SQLException, ClassNotFoundException{
         TableReader tableReader = new TableReader(connectionURL, driverName);
-        int usernameFound = tableReader.checkInTable("username", "users", username);
-        int passwordFound = tableReader.checkInTable("password", "users", password);
-        return (usernameFound & passwordFound) != 0;
+        return (tableReader.checkInTable("username", "users", username) & tableReader.checkInTable("password", "users", password)) != 0;
     }
 
     public Boolean registration(Account account) throws SQLException, ClassNotFoundException{
